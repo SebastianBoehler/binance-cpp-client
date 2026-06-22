@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Security report
+    url: https://github.com/SebastianBoehler/binance-cpp-client/security/advisories/new
+    about: Please report credential leaks or security issues privately first.
+  - name: Binance Spot API docs
+    url: https://developers.binance.com/docs/binance-spot-api-docs/rest-api/general-api-information
+    about: Official upstream Spot REST documentation.
+  - name: Binance Derivatives API docs
+    url: https://developers.binance.com/docs/derivatives
+    about: Official upstream futures and options documentation.

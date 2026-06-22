@@ -1,0 +1,55 @@
+name: Endpoint request
+description: Request support for a missing Binance endpoint or stream.
+title: "feat(endpoint): "
+labels: ["api coverage"]
+body:
+  - type: input
+    id: endpoint
+    attributes:
+      label: Endpoint or stream
+      placeholder: GET /fapi/v1/order or <symbol>@trade
+    validations:
+      required: true
+  - type: input
+    id: docs
+    attributes:
+      label: Official Binance docs URL
+      placeholder: https://developers.binance.com/docs/...
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: API category
+      options:
+        - Spot REST
+        - USD-M futures REST
+        - COIN-M futures REST
+        - Options REST
+        - Spot WebSocket streams
+        - Derivatives WebSocket streams
+        - WebSocket API
+        - Margin/wallet/earn/convert
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: use_case
+    attributes:
+      label: Use case
+      description: What user workflow or bot behavior does this unblock?
+    validations:
+      required: true
+  - type: textarea
+    id: contract
+    attributes:
+      label: Request contract notes
+      description: Required params, optional params, account-mode constraints, rate-limit notes, and safety concerns.
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution
+      options:
+        - label: I can help implement this endpoint.
+        - label: I can test this on Binance testnet.
+        - label: This endpoint requires live account state that is hard to test publicly.

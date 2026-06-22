@@ -1,0 +1,40 @@
+name: Performance issue
+description: Report latency, connection reuse, or throughput concerns.
+title: "perf: "
+labels: ["performance"]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What workload is slower or less efficient than expected?
+    validations:
+      required: true
+  - type: textarea
+    id: workload
+    attributes:
+      label: Workload
+      description: Include endpoint mix, request rate, client reuse pattern, and whether WebSocket is enabled.
+    validations:
+      required: true
+  - type: textarea
+    id: measurement
+    attributes:
+      label: Measurement
+      description: Include cold/warm timings, platform, libcurl/OpenSSL versions, and comparison baseline if available.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: options
+    attributes:
+      label: HttpOptions
+      description: Include non-secret transport settings such as timeout, DNS cache TTL, proxy, and user agent.
+      render: cpp
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety checks
+      options:
+        - label: I did not include API keys, signatures, account IDs, listen keys, or private payloads.
+          required: true

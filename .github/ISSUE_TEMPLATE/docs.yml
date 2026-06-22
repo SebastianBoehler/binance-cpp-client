@@ -1,0 +1,26 @@
+name: Documentation issue
+description: Report unclear, missing, or stale docs.
+title: "docs: "
+labels: ["documentation"]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What should be corrected or clarified?
+    validations:
+      required: true
+  - type: input
+    id: page
+    attributes:
+      label: Affected file or page
+      placeholder: README.md, docs/api_coverage.md, examples/market_snapshot.cpp
+  - type: textarea
+    id: suggested
+    attributes:
+      label: Suggested change
+  - type: input
+    id: upstream
+    attributes:
+      label: Upstream docs URL
+      description: If this is about Binance behavior, link the official Binance page.
