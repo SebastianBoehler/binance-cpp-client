@@ -41,8 +41,16 @@ if(CLANG_TIDY_EXE)
 endif()
 
 add_library(binance_client
+    src/futures_account.cpp
+    src/futures_client.cpp
+    src/futures_market.cpp
+    src/futures_trading.cpp
     src/http_client.cpp
     src/http_error.cpp
+    src/options_account.cpp
+    src/options_client.cpp
+    src/options_market.cpp
+    src/options_trading.cpp
     src/query.cpp
     src/rest_account.cpp
     src/rest_client.cpp
@@ -75,6 +83,10 @@ endif()
 
 add_executable(market_snapshot examples/market_snapshot.cpp)
 target_link_libraries(market_snapshot PRIVATE binance_client)
+add_executable(futures_market_snapshot examples/futures_market_snapshot.cpp)
+target_link_libraries(futures_market_snapshot PRIVATE binance_client)
+add_executable(options_market_snapshot examples/options_market_snapshot.cpp)
+target_link_libraries(options_market_snapshot PRIVATE binance_client)
 add_executable(place_test_order examples/place_test_order.cpp)
 target_link_libraries(place_test_order PRIVATE binance_client)
 add_executable(ws_stream_url examples/ws_stream_url.cpp)
@@ -107,7 +119,7 @@ install(FILES
 option(BINANCE_BUILD_TESTS "Build tests" ON)
 if(BINANCE_BUILD_TESTS)
     include(CTest)
-    foreach(test_name IN ITEMS signing query order_request rest_surface websocket_topics)
+    foreach(test_name IN ITEMS signing query order_request rest_surface derivatives_surface websocket_topics)
         add_executable(test_${test_name} tests/test_${test_name}.cpp)
         target_link_libraries(test_${test_name} PRIVATE binance_client)
         add_test(NAME ${test_name} COMMAND test_${test_name})
