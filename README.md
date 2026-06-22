@@ -4,6 +4,19 @@ Small C++20 Binance Spot client with the same practical shape as
 `bybit-cpp-client`: reusable HTTP transport, HMAC signing, raw JSON responses,
 thin typed route helpers, and pass-through methods for unwrapped endpoints.
 
+## C++ Exchange Client Suite
+
+This repository is part of a small C++ crypto exchange client suite:
+
+- [binance-cpp-client](https://github.com/SebastianBoehler/binance-cpp-client)
+  for Binance Spot REST and public market WebSocket helpers.
+- [bybit-cpp-client](https://github.com/SebastianBoehler/bybit-cpp-client)
+  for Bybit Open API V5 REST, optional WebSockets, and SBE helpers.
+
+Both clients favor reusable transports, OpenSSL signing, raw upstream JSON, and
+thin route wrappers so trading systems can share the same integration style
+across exchanges without inheriting hidden strategy logic.
+
 ## Scope
 
 - Spot REST base URL: `https://api.binance.com`
