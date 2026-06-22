@@ -107,7 +107,7 @@ install(FILES
 option(BINANCE_BUILD_TESTS "Build tests" ON)
 if(BINANCE_BUILD_TESTS)
     include(CTest)
-    foreach(test_name IN ITEMS signing query order_request websocket_topics)
+    foreach(test_name IN ITEMS signing query order_request rest_surface websocket_topics)
         add_executable(test_${test_name} tests/test_${test_name}.cpp)
         target_link_libraries(test_${test_name} PRIVATE binance_client)
         add_test(NAME ${test_name} COMMAND test_${test_name})

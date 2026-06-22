@@ -9,9 +9,13 @@ thin typed route helpers, and pass-through methods for unwrapped endpoints.
 - Spot REST base URL: `https://api.binance.com`
 - Spot testnet base URL: `https://testnet.binance.vision`
 - Public market endpoints: ping, time, exchange info, depth, trades, aggregate
-  trades, klines, average price, ticker price, and book ticker.
+  trades, historical trades, klines, average price, reference price, execution
+  rules, ticker families, and book ticker.
 - Signed account/trading endpoints: account info, order lookup, open orders,
-  all orders, account trades, order placement, test order, order cancellation.
+  all orders, account trades, commissions, order lists, allocations, STP
+  prevented matches, amendments, rate-limit usage, order placement, test order,
+  cancellation, cancel-replace, amend-keep-priority, order-list placement, and
+  SOR placement.
 - Public market WebSocket stream URL/topic helpers, with an optional live
   `ixwebsocket` implementation.
 - Generic `request_public`, `request_api_key`, and `request_signed` helpers for
@@ -25,6 +29,7 @@ Current Binance references checked on 2026-06-22:
 - [Trading endpoints](https://developers.binance.com/docs/binance-spot-api-docs/rest-api/trading-endpoints)
 - [Account endpoints](https://developers.binance.com/docs/binance-spot-api-docs/rest-api/account-endpoints)
 - [WebSocket streams](https://developers.binance.com/docs/binance-spot-api-docs/web-socket-streams)
+- [Official Python connector](https://github.com/binance/binance-connector-python)
 
 The old REST listen-key user data stream endpoints are intentionally not wrapped;
 current docs point user data subscriptions at the WebSocket API instead.
@@ -89,4 +94,3 @@ auto url = binance::WebSocketClient::combined_url({
   about the signed payload.
 - HTTP status errors throw `binance::HttpError` and expose response headers,
   raw body, and parsed Binance `code`/`msg` when present.
-
